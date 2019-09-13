@@ -86,7 +86,7 @@ app.use(function (err, req, res, next) {
 		errors: err.stack
 	};
 	res.status(500).json(response);
-})
+});
 
 app.listen(APP_PORT, _ => {
     console.log(`[+] App Server started on ${APP_PORT}`);
