@@ -2,7 +2,8 @@ const mysql = require('mysql2');
 const express = require('express');
 
 const app = express();
-const APP_PORT = 9000;
+
+const APP_PORT = process.env.APP_PORT || 9000;
 const DB_HOST = process.env.DB_HOST || 'localhost';
 const DB_NAME = process.env.DB_NAME || 'viz_db';
 const DB_USERNAME = process.env.DB_USERNAME || 'viz1';
@@ -30,7 +31,6 @@ app.get('/api/v1/health-check', function(req, res, next) {
 		res.send(data);
 	});
 });
-
 
 app.listen(APP_PORT, _ => {
     console.log(`[+] App Server started on ${APP_PORT}`);
