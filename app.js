@@ -96,3 +96,7 @@ app.use(function (error, req, res, next) {
 app.listen(APP_PORT, _ => {
     console.log(`[+] App Server started on ${APP_PORT}`);
 });
+
+process.on('SIGINT', function() {
+    process.exit();
+});

@@ -49,12 +49,53 @@ FLUSH PRIVILEGES;
 - [ ] Kubernetes
 - [ ] Deploy to Cloud
 - [ ] nginx
-- [ ] Enhance the code structure and decouple
+- [ ] Code
+  - [ ] Connection Pooling
+  - [ ] Validation and Error Frameworks
+  - [ ] Enhance the code structure and decouple
 
 
 
 ## Development Notes
 
 ```
+
+
+ app.use(bodyParser.json());
+ app.use(bodyParser.urlencoded({ extended: true }));
+
+ mysql.createPool({
+  connectionLimit : 10,
+  ...
+ })
+
+  connection.release();
+
+
+  query.sql
+
+
+- npm ci --only=production
+
+
+docker system prune -a
+
+
+https://expressjs.com/en/api.html#router.param
+
+brew install bash-completion
+
+    source <(kubectl completion bash)
+
+
+    docker pull mysql/mysql-server:latest
+
+    docker logs -- check logs for pwd
+
+    COPY --from=0 /app .
+
+    NODE_ENV
+
+    
 
 ```

@@ -5,7 +5,8 @@
   "repository": "https://github.com/vs4vijay/Kubernetes-World",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "author": "Vijay Soni (vs4vijay@gmail.com)",
   "license": "MIT",
