@@ -38,7 +38,7 @@ app.get(['/', '/api/v1/health-check'], function(req, res, next) {
         
         response = {
             success: results[0]['sum'] == 2,
-            data: results
+            data: results[0]
         }
 		res.json(response);
 	});
@@ -67,8 +67,6 @@ app.get('/api/v1/decrypt', (req, res, next) => {
 	const decryptSqlQuery = `SELECT AES_DECRYPT(UNHEX("?"), "${ENCRYPT_KEY}") AS decrypted_data LIMIT 1`;
 
 	const inputData = req.query['data'];
-
-	console.log('inputData', inputData);
 
 	res.locals.connection.query(decryptSqlQuery, [inputData], function (error, results, fields) {
         if(error) {
