@@ -19,7 +19,13 @@ app.use(function(req, res, next) {
 		user: DB_USERNAME,
         password: DB_PASSWORD
 	});
-	res.locals.connection.connect();
+	res.locals.connection.connect(error => {
+		if(!error) {
+			console.log('[+] Connected to DB');
+		} else {
+			next(error);
+		}
+	});
 	next();
 });
 
@@ -78,12 +84,13 @@ app.get('/api/v1/decrypt', (req, res, next) => {
 	});
 });
 
-app.use(function (err, req, res, next) {
-	console.error(err.stack);
+app.use(function (error, req, res, next) {
+	console.error(error.stack);
+	// error.message
 
 	response = {
 		success: false,
-		errors: err.stack
+		errors: error.stack
 	};
 	res.status(500).json(response);
 });
