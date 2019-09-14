@@ -194,6 +194,8 @@ kubectl exec -i [pod name] -c [container-name] -- kill -15 5
 
 kubectl get pv
 
+minikube service list
+
 
 Access Service via DNS Name
 
