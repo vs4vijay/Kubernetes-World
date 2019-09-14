@@ -7,10 +7,28 @@ spec:
   template:
     metadata:
       labels:
-        run: kube-world
+        app: kube-world
     spec:
       containers:
         - name: kube-world
           image: vs4vijay/kube-world
           ports:
             - containerPort: 9999
+          env:
+            - name: DB_HOST
+              value: mysql.default.svc.cluster.local
+            - name: DB_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: kube-world-secrets
+                  key: DB_NAME
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: kube-world-secrets
+                  key: DB_USERNAME
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: kube-world-secrets
+                  key: DB_PASSWORD
