@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: kube-world
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: kube-world
+    spec:
+      containers:
+        - name: kube-world
+          image: vs4vijay/kube-world
+          ports:
+            - containerPort: 9999

@@ -31,12 +31,32 @@ FLUSH PRIVILEGES;
 - `docker build -t kube-world .`
 - `docker run -p 9999:9999 kube-world`
 
+### Run with Kubernetes
+
+- `brew install kubernetes-cli`
+- `brew cask install minikube`
+- `minikube start`
 
 
 ## Contribution
 - `docker build -t vs4vijay/kube-world .`
 - `docker login`
 - `docker push vs4vijay/kube-world`
+
+
+## Kubernetes Flow
+
+```
+
+kubectl run kube-world --replicas=1 --labels="run=kube-world" --image=vs4vijay/kube-world --port=9999
+
+OR
+
+kubectl create -f deploy/service.yml
+kubectl create -f deploy/deployment.yml
+
+
+```
 
 
 
@@ -92,10 +112,26 @@ brew install bash-completion
 
     docker logs -- check logs for pwd
 
+    docker ps -a -q
+
     COPY --from=0 /app .
 
     NODE_ENV
 
-    
+
+
+kubectl describe pod <name>
+
+
+livenessProbe
+
+resources:
+      limits:
+        cpu: "1"
+      requests:
+        cpu: "0.5"
+
+
+        helm
 
 ```

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: 1-world
+  labels:
+    name: 1-world
+spec:
+  containers:
+    - name: 1-world
+      image: vs4vijay/kube-world
+      ports:
+        - containerPort: 9999
