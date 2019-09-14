@@ -52,8 +52,10 @@ kubectl run kube-world --replicas=1 --labels="run=kube-world" --image=vs4vijay/k
 
 OR
 
+kubectl apply -f secret.yml
 kubectl create -f deploy/service.yml
 kubectl create -f deploy/deployment.yml
+minikube ip
 
 
 ```
@@ -133,5 +135,9 @@ resources:
 
 
         helm
+
+kubectl get secret
+
+kubectl describe secret kube-world-secrets
 
 ```
